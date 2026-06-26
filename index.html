@@ -1,1 +1,30 @@
-<!DOCTYPE html><html><body><h2>Family Day Login</h2><p>Starter login page generated.</p></body></html>
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Login</title>
+<style>
+body{font-family:Arial;background:#f4f6f9;display:flex;justify-content:center;align-items:center;height:100vh}
+.box{background:#fff;padding:30px;border-radius:10px;width:340px;box-shadow:0 2px 10px rgba(0,0,0,.2)}
+input,button{width:100%;padding:10px;margin:8px 0}
+button{background:#1F4E79;color:#fff;border:none}
+</style></head>
+<body>
+<div class="box">
+<h2>Delta Family Day 2026</h2>
+<input id="u" placeholder="Username">
+<input id="p" type="password" placeholder="Password">
+<button onclick="login()">Login</button>
+<div id="m"></div>
+</div>
+<script>
+const USERS=[{u:'user4',p:'Delta@1004'}];
+function login(){
+ const u=document.getElementById('u').value;
+ const p=document.getElementById('p').value;
+ if(USERS.find(x=>x.u===u && x.p===p)){
+   sessionStorage.setItem('loggedIn','yes');
+   location='dashboard.html';
+ }else{
+   document.getElementById('m').innerText='Invalid username or password';
+ }
+}
+</script>
+</body></html>
